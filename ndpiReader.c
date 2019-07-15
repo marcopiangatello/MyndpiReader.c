@@ -2802,7 +2802,7 @@ static void ndpi_process_packet(u_char *args,
   /* allocate an exact size buffer to check overflows */
   uint8_t *packet_checked = malloc(header->caplen);
 
-
+  ndpi_thread_info[thread_id].workflow->hrs = 0;
   if (ndpi_has_human_readeable_string(ndpi_info_mod, (char*)packet, header->caplen) == 1) ndpi_thread_info[thread_id].workflow->hrs = 1;
 
   memcpy(packet_checked, packet, header->caplen);
